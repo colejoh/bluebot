@@ -7,22 +7,49 @@ var config = require('./config.js');
 var email = config.email;
 var pass = config.pass;
 
-login({email: email, password: pass}, function callback(err, api) {
-    if(err) return console.error(err);
+var score = {};
 
-    api.listen(function callback(err, message) {
-        var messageContent = message.body;
-        var thread = message.threadID;
-        console.log(message);
-	var arr = message.body.split(" ");
-	var command = arr[0];
-	console.log(command);
+login({email: email, password: pass}, loginCallback);
 
-        if(command === "/echo") {
-            api.sendMessage(messageContent, thread);
-        }
-    });
-});
+
+// parse messages for handling
+function loginCallback(err, api) {
+  if(err) return console.error(err);
+
+  api.listen(function callback(err, message) {
+    // Comand defined as starting with /
+    if(isCommand(message)) {
+      var commandString = message.body.slice(1);
+      console.log(commandString);
+      var trigger = commandString.substring(0, endOfCmd(commandString));
+
+      if(trigger == "echo") {
+        var messageBody = message.body.substring(trigger.length + 1);  
+        api.sendMessage(messageBody, message.threadID);
+      }
+      
+    }
+  });
+}
+
+
+// determine the end of the command
+function endOfCmd(cmd) {
+  if(cmd.indexOf(' ') > 0) {
+    return cmd.indexOf(' ');
+  } else {
+    return cmd.length;
+  }
+}
+
+// determine if a received message is a command
+function isCommand(message) {
+  if (!(message && message.body)) {
+    return false;
+  } else {
+    return message.body.startsWith('/');
+  }
+}
 
 app.listen(port);
 console.log("listening on port: " + port + "...");

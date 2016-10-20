@@ -7,7 +7,11 @@ var config = require('./config.js');
 var email = config.email;
 var pass = config.pass;
 
-var score = {};
+var commandJSON = require('./commands.json');
+
+var commands = commandJSON.map(function(cmd) {
+  return require('./' + cmd['path']);
+});
 
 login({email: email, password: pass}, loginCallback);
 
@@ -20,14 +24,12 @@ function loginCallback(err, api) {
     // Comand defined as starting with /
     if(isCommand(message)) {
       var commandString = message.body.slice(1);
-      console.log(commandString);
       var trigger = commandString.substring(0, endOfCmd(commandString));
-
-      if(trigger == "echo") {
-        var messageBody = message.body.substring(trigger.length + 1);  
-        api.sendMessage(messageBody, message.threadID);
-      }
-      
+      commands.forEach(function(cmd, index) {
+        if(trigger == commandJSON[index]['trigger']) {
+          cmd.trigger(commandString.slice(trigger.length+1), api, message);
+        }
+      });
     }
   });
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "echo",
+    "trigger": "echo",
+    "path": "commands/echo.js",
+    "usage": "echo <message>",
+    "description": "repeats <message> back to thread"
+  },
+  {
+    "name": "wububub",
+    "trigger": "wububub",
+    "path": "commands/wububub.js",
+    "usage": "wububub",
+    "description": "Sends wow after wububub"
+  },
+  {
+    "name": "plusplus",
+    "trigger": "++",
+    "path": "commands/plusplus.js",
+    "usage": "++ <person's name>",
+    "description": "Keeps score of people and things"
+  }
+]

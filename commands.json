@@ -33,5 +33,12 @@
     "path": "commands/leaderboard.js",
     "usage": "leaderboard",
     "description": "See the plus plus leaderboard"
+  },
+  {
+    "name": "cleverbot",
+    "trigger": "clever",
+    "path": "commands/cleverbot.js",
+    "usage": "cleverbot <question>",
+    "description": "A use of the cleverbot API"
   }
 ]

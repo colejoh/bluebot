@@ -1,0 +1,25 @@
+{
+  "name": "bluebot",
+  "version": "1.0.0",
+  "description": "A facebook chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colejoh/bluebot.git"
+  },
+  "author": "Cole Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colejoh/bluebot/issues"
+  },
+  "homepage": "https://github.com/colejoh/bluebot#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "facebook-chat-api": "^1.2.0",
+    "nodemon": "^1.11.0"
+  }
+}

@@ -14,11 +14,11 @@ function trigger(message, api, messageObj) {
 
       // If person exists add to their score, else add the person
       if(message in threadScore) {
-        var personScore = threadScore[message] + 1;
+        var personScore = threadScore[message] - 1;
         threadScore[message] = personScore;
       } else {
-        threadScore[message] = 1;
-      }
+        threadScore[message] = -1;
+      }   
 
       // Optimistic Coding for return
       var upMessage = message.charAt(0).toUpperCase() + message.slice(1);
@@ -28,22 +28,22 @@ function trigger(message, api, messageObj) {
       jsonfile.writeFileSync(file, score);
     
       api.sendMessage(retMessage, messageObj.threadID);
-    }
-  });
+    }   
+  }); 
 
   if(!isThread) {
-    score[counter] = {
+    score[counter] = { 
       "threadID": messageObj.threadID,
-      "scores": {},
+      "scores": {}, 
       "updated": Date.now()
-    };
-    score[counter]['scores'][message] = 1;
-    var retMessage = message.charAt(0).toUpperCase() + message.slice(1) + " is now at 1 point.";
+    };  
+    score[counter]['scores'][message] = -1;
+    var retMessage = message.charAt(0).toUpperCase() + message.slice(1) + " is now at -1 points.";
     api.sendMessage(retMessage, messageObj.threadID);
     jsonfile.writeFileSync(file, score);
-  } 
+  }   
 }
 
-module.exports = {
+module.exports = { 
   trigger: trigger
 }

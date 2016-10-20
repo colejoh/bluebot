@@ -19,5 +19,19 @@
     "path": "commands/plusplus.js",
     "usage": "++ <person's name>",
     "description": "Keeps score of people and things"
+  },
+  {
+    "name": "minusminus",
+    "trigger": "--",
+    "path": "commands/minusminus.js",
+    "usage": "-- <person's name>",
+    "description": "Use this to take points away from someone."
+  },
+  {
+    "name": "leaderboard",
+    "trigger": "leaderboard",
+    "path": "commands/leaderboard.js",
+    "usage": "leaderboard",
+    "description": "See the plus plus leaderboard"
   }
 ]

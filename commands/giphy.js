@@ -5,7 +5,7 @@ function trigger(search, api, message) {
   giphy.random(search, function(err, res) {
     if (err) return console.error(err);
     var msg = {
-      body: res.data.caption || "For some reason this doesn't work on m.me",
+      body: res.data.caption,
       url: res.data.image_original_url
     };
     api.sendMessage(msg, threadID);

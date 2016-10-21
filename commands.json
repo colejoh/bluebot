@@ -40,5 +40,12 @@
     "path": "commands/cleverbot.js",
     "usage": "cleverbot <question>",
     "description": "A use of the cleverbot API"
+  },
+  {
+    "name": "giphy",
+    "trigger": "gif",
+    "path": "commands/giphy.js",
+    "usage": "gif <search term>",
+    "description": "Sends a gif"
   }
 ]

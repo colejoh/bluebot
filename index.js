@@ -4,6 +4,9 @@ var port = 8080;
 var app = express();
 var config = require('./config.js');
 
+// Sets up static app
+app.use(express.static(__dirname + '/public'));
+
 var email = config.email;
 var pass = config.pass;
 

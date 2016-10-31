@@ -47,5 +47,12 @@
     "path": "commands/giphy.js",
     "usage": "gif <search term>",
     "description": "Sends a gif"
+  },
+  {
+    "name": "baseball",
+    "trigger": "baseball",
+    "path": "commands/baseball.js",
+    "usage": "baseball",
+    "description": "Fuck the cubs"
   }
 ]

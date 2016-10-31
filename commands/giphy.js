@@ -6,7 +6,7 @@ function trigger(search, api, message) {
     if (err) return console.error(err);
     var msg = {
       body: res.data.caption,
-      url: res.data.image_original_url
+      url: res.data.url
     };
     api.sendMessage(msg, threadID);
   });

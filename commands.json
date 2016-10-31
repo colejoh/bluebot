@@ -54,5 +54,12 @@
     "path": "commands/baseball.js",
     "usage": "baseball",
     "description": "Fuck the cubs"
+  },
+  {
+    "name": "help",
+    "trigger": "help",
+    "path": "commands/help.js",
+    "usage": "help",
+    "description": "Helps idiots"
   }
 ]

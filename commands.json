@@ -61,5 +61,12 @@
     "path": "commands/help.js",
     "usage": "help",
     "description": "Helps idiots"
+  },
+  {
+    "name": "code",
+    "trigger": "code",
+    "path": "commands/code.js",
+    "usage": "code <language> <code>",
+    "description": "Formats code in the language specified"
   }
 ]

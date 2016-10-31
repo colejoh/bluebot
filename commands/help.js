@@ -20,7 +20,6 @@ function formHelp() {
     usageMessage += '\n\n';
   }
   usageMessage += "help <command> lists available subcommands and descriptions" 
-  console.log(usageMessage);
   return usageMessage;
 }
 
@@ -35,7 +34,6 @@ function formDesc(cmd) {
       usageMessage += commands[command].description;
     }
   }
-  console.log(usageMessage);
   return usageMessage;
 }
 
